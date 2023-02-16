@@ -2,6 +2,8 @@ package com.practiced.rca.dto;
 
 import java.util.Date;
 
+import com.practiced.rca.entity.Perito;
+
 public class DtoSiniestro {
 	private Integer idSiniestro;
 	private Date fechaSiniestro;
@@ -9,7 +11,7 @@ public class DtoSiniestro {
 	private String aceptado;
 	private Integer indemnizacion;
 	private Integer numeroPoliza;
-	private String dpiPerito;
+	private Perito perito;
 	
 	public Integer getIdSiniestro() {
 		return idSiniestro;
@@ -47,10 +49,11 @@ public class DtoSiniestro {
 	public void setNumeroPoliza(Integer numeroPoliza) {
 		this.numeroPoliza = numeroPoliza;
 	}
-	public String getDpiPerito() {
-		return dpiPerito;
+	public Perito getPerito() {
+		return perito;
 	}
-	public void setDpiPerito(String dpiPerito) {
-		this.dpiPerito = dpiPerito;
+	public void setPerito(Perito perito) {
+		this.perito = perito;
 	}
+	
 }

@@ -1,6 +1,7 @@
 package com.practiced.rca.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,7 +13,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.JoinColumn;
 
 @Entity
-@Table(name="COMPANIAS")
+@Table(name="COMPANIAS", schema = "SEGUNI")
 public class Compania implements Serializable{
 
 	private static final long serialVersionUID = -5961990947108792377L;
@@ -25,7 +26,7 @@ public class Compania implements Serializable{
 	private String claseVia;
 	
 	@Column(name="NUMEROVIA")
-	private String numeroVia;
+	private Integer numeroVia;
 	
 	@Column(name="CODIGOPOSTAL")
 	private String codigoPostal;
@@ -39,12 +40,14 @@ public class Compania implements Serializable{
 	@Column(name="NOTAS")
 	private String notas;
 	
-	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(
-            name = "CompaniasSeguro",
-            joinColumns = {@JoinColumn(name = "student_id")},
-            inverseJoinColumns = {@JoinColumn(name = "course_id")}
+            name = "COMPANIASSEGUROS",
+            joinColumns = {@JoinColumn(name = "NOMBRECOMPANIA")},
+            inverseJoinColumns = {@JoinColumn(name = "NUMEROPOLIZA")},
+            schema = "SEGUNI"
     )
+	private List<Seguro> seguros;
 
 	public String getNombreCompania() {
 		return nombreCompania;
@@ -62,11 +65,11 @@ public class Compania implements Serializable{
 		this.claseVia = claseVia;
 	}
 
-	public String getNumeroVia() {
+	public Integer getNumeroVia() {
 		return numeroVia;
 	}
 
-	public void setNumeroVia(String numeroVia) {
+	public void setNumeroVia(Integer numeroVia) {
 		this.numeroVia = numeroVia;
 	}
 
@@ -100,5 +103,13 @@ public class Compania implements Serializable{
 
 	public void setNotas(String notas) {
 		this.notas = notas;
+	}
+
+	public List<Seguro> getSeguros() {
+		return seguros;
+	}
+
+	public void setSeguros(List<Seguro> seguros) {
+		this.seguros = seguros;
 	}
 }

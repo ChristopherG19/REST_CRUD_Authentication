@@ -9,12 +9,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="SINIESTROS")
+@Table(name="SINIESTROS", schema = "SEGUNI")
 public class Siniestro implements Serializable{
 
 	private static final long serialVersionUID = 8078516714270213610L;
@@ -22,8 +23,8 @@ public class Siniestro implements Serializable{
 	@Id
 	@Column(name="IDSINIESTRO")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SINIESTROS_IDS")
-	@SequenceGenerator(name = "SINIESTROS_IDS", allocationSize = 1)
-	private long idSiniestro;
+	@SequenceGenerator(name = "SINIESTROS_IDS", allocationSize = 1, schema = "SEGUNI")
+	private Integer idSiniestro;
 	
 	@Column(name="FECHASINIESTRO")
 	private Date fechaSiniestro;
@@ -40,23 +41,15 @@ public class Siniestro implements Serializable{
 	@Column(name="NUMEROPOLIZA")
 	private Integer numeroPoliza;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@Column(name="DPIPERITO")
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(name="DPIPERITO")
 	private Perito perito;
 
-	public Perito getPerito() {
-		return perito;
-	}
-
-	public void setPerito(Perito perito) {
-		this.perito = perito;
-	}
-
-	public long getIdSiniestro() {
+	public Integer getIdSiniestro() {
 		return idSiniestro;
 	}
 
-	public void setIdSiniestro(long idSiniestro) {
+	public void setIdSiniestro(Integer idSiniestro) {
 		this.idSiniestro = idSiniestro;
 	}
 
@@ -98,5 +91,13 @@ public class Siniestro implements Serializable{
 
 	public void setNumeroPoliza(Integer numeroPoliza) {
 		this.numeroPoliza = numeroPoliza;
+	}
+
+	public Perito getPerito() {
+		return perito;
+	}
+
+	public void setPerito(Perito perito) {
+		this.perito = perito;
 	}
 }

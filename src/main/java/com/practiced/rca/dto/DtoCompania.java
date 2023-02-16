@@ -9,7 +9,7 @@ public class DtoCompania {
 	private String telefonoContratacion;
 	private String telefonoSiniestros;
 	private String notas;
-	
+
 	public String getNombreCompania() {
 		return nombreCompania;
 	}

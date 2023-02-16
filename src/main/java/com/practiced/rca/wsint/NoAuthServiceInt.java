@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.practiced.rca.dto.DtoCliente;
+import com.practiced.rca.entity.Usuario;
 
 @RestController
 @RequestMapping("/api/noauth")
@@ -14,6 +14,6 @@ import com.practiced.rca.dto.DtoCliente;
 public interface NoAuthServiceInt {
 
 	@GetMapping("/login")
-	public String getUserByUsernameAndPassword(@RequestBody DtoCliente usuario);
+	public String getUserByUsernameAndPassword(@RequestBody Usuario usuario);
 	
 }

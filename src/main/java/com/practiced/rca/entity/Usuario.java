@@ -8,14 +8,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="USUARIOS")
+@Table(name="USUARIOS", schema = "SEGUNI")
 public class Usuario implements Serializable{
 
 	private static final long serialVersionUID = 7922975616686886149L;
 
 	@Id
 	@Column(name="USERNAME")
-	private String userName;
+	private String username;
 	
 	@Column(name="PASSWORD")
 	private String password;
@@ -23,12 +23,12 @@ public class Usuario implements Serializable{
 	@Column(name="DPI")
 	private String dpi;
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String userName) {
+		this.username = userName;
 	}
 
 	public String getPassword() {

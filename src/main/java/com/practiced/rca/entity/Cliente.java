@@ -1,18 +1,14 @@
 package com.practiced.rca.entity;
 
 import java.io.Serializable;
-import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="CLIENTES")
+@Table(name="CLIENTES", schema = "SEGUNI")
 public class Cliente implements Serializable{
 
 	private static final long serialVersionUID = -3630605027551015154L;
@@ -50,18 +46,6 @@ public class Cliente implements Serializable{
 	
 	@Column(name="OBSERVACIONES")
 	private String observaciones;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "DPI")
-	private List<Seguro> seguros;
-
-	public List<Seguro> getSeguros() {
-		return seguros;
-	}
-
-	public void setSeguros(List<Seguro> seguros) {
-		this.seguros = seguros;
-	}
 
 	public String getDpi() {
 		return dpi;

@@ -2,19 +2,21 @@ package com.practiced.rca.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="SEGUROS")
+@Table(name="SEGUROS", schema = "SEGUNI")
 public class Seguro implements Serializable{
 
 	private static final long serialVersionUID = 179616312973709072L;
@@ -22,8 +24,8 @@ public class Seguro implements Serializable{
 	@Id
 	@Column(name="NUMEROPOLIZA")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEGUROS_IDS")
-	@SequenceGenerator(name = "SEGUROS_IDS", allocationSize = 1)
-	private long numeroPoliza;
+	@SequenceGenerator(name = "SEGUROS_IDS", allocationSize = 1, schema = "SEGUNI")
+	private Integer numeroPoliza;
 	
 	@Column(name="RAMO")
 	private String ramo;
@@ -43,14 +45,23 @@ public class Seguro implements Serializable{
 	@Column(name="DPI")
 	private String dpi;
 	
-	 @ManyToMany(mappedBy = "seguros")
-	 private Set<Compania> companias;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "NUMEROPOLIZA")
+	private List<Siniestro> siniestros;
+	
+	public List<Siniestro> getSiniestros() {
+		return siniestros;
+	}
 
-	public long getNumeroPoliza() {
+	public void setSiniestros(List<Siniestro> siniestros) {
+		this.siniestros = siniestros;
+	}
+
+	public Integer getNumeroPoliza() {
 		return numeroPoliza;
 	}
 
-	public void setNumeroPoliza(long numeroPoliza) {
+	public void setNumeroPoliza(Integer numeroPoliza) {
 		this.numeroPoliza = numeroPoliza;
 	}
 
