@@ -25,7 +25,7 @@ public class JwtGeneratorImpl implements JwtGeneratorInt{
 		Map<String, Object> claims = new HashMap<>();
 		return Jwts.builder().setClaims(claims).setSubject(usuario.getUsername())
 				.setIssuedAt(new Date(System.currentTimeMillis()))
-				.setExpiration(new Date(System.currentTimeMillis() + (3600 *1000))) 
+				.setExpiration(new Date(System.currentTimeMillis() + (60*100000))) 
 				.signWith(SignatureAlgorithm.HS256, secret)
 				.compact();
 	}
