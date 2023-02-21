@@ -21,24 +21,24 @@ public class Siniestro implements Serializable{
 	private static final long serialVersionUID = 8078516714270213610L;
 
 	@Id
-	@Column(name="IDSINIESTRO")
+	@Column(name="ID_SINIESTRO")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SINIESTROS_IDS")
-	@SequenceGenerator(name = "SINIESTROS_IDS", allocationSize = 1, schema = "SEGUNI")
+	@SequenceGenerator(name = "SINIESTROS_IDS",sequenceName="sec_siniestros", allocationSize = 1, schema = "SEGUNI")
 	private Integer idSiniestro;
 	
-	@Column(name="FECHASINIESTRO")
+	@Column(name="FECHA_SINIESTRO")
 	private Date fechaSiniestro;
 	
 	@Column(name="CAUSAS")
 	private String causas;
 	
 	@Column(name="ACEPTADO")
-	private String aceptado;
+	private char aceptado;
 	
 	@Column(name="INDEMNIZACION")
-	private Integer indemnizacion;
+	private double indemnizacion;
 	
-	@Column(name="NUMEROPOLIZA")
+	@Column(name="NUMERO_POLIZA")
 	private Integer numeroPoliza;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -69,19 +69,19 @@ public class Siniestro implements Serializable{
 		this.causas = causas;
 	}
 
-	public String getAceptado() {
+	public char getAceptado() {
 		return aceptado;
 	}
 
-	public void setAceptado(String aceptado) {
+	public void setAceptado(char aceptado) {
 		this.aceptado = aceptado;
 	}
 
-	public Integer getIndemnizacion() {
+	public double getIndemnizacion() {
 		return indemnizacion;
 	}
 
-	public void setIndemnizacion(Integer indemnizacion) {
+	public void setIndemnizacion(double indemnizacion) {
 		this.indemnizacion = indemnizacion;
 	}
 

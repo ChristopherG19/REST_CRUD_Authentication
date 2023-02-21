@@ -4,8 +4,9 @@ public class DtoCompania {
 
 	private String nombreCompania;
 	private String claseVia;
+	private String nombreVia;
 	private Integer numeroVia;
-	private String codigoPostal;
+	private Integer codigoPostal;
 	private String telefonoContratacion;
 	private String telefonoSiniestros;
 	private String notas;
@@ -28,10 +29,17 @@ public class DtoCompania {
 	public void setNumeroVia(Integer numeroVia) {
 		this.numeroVia = numeroVia;
 	}
-	public String getCodigoPostal() {
+
+	public String getNombreVia() {
+		return nombreVia;
+	}
+	public void setNombreVia(String nombreVia) {
+		this.nombreVia = nombreVia;
+	}
+	public Integer getCodigoPostal() {
 		return codigoPostal;
 	}
-	public void setCodigoPostal(String codigoPostal) {
+	public void setCodigoPostal(Integer codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
 	public String getTelefonoContratacion() {

@@ -10,7 +10,7 @@ public class DtoCliente {
 	private String nombreVia;
 	private Integer numeroVia;
 	private String ciudad;
-	private String codigoPostal;
+	private Integer codigoPostal;
 	private String telefono;
 	private String observaciones;
 	
@@ -62,10 +62,10 @@ public class DtoCliente {
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
-	public String getCodigoPostal() {
+	public Integer getCodigoPostal() {
 		return codigoPostal;
 	}
-	public void setCodigoPostal(String codigoPostal) {
+	public void setCodigoPostal(Integer codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
 	public String getTelefono() {

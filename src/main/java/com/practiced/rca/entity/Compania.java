@@ -19,22 +19,25 @@ public class Compania implements Serializable{
 	private static final long serialVersionUID = -5961990947108792377L;
 
 	@Id
-	@Column(name="NOMBRECOMPANIA")
+	@Column(name="NOMBRE_COMPANIA")
 	private String nombreCompania;
 	
-	@Column(name="CLASEVIA")
+	@Column(name="CLASE_VIA")
 	private String claseVia;
 	
-	@Column(name="NUMEROVIA")
-	private Integer numeroVia;
+	@Column(name="NOMBRE_VIA")
+	private String nombreVia;
 	
-	@Column(name="CODIGOPOSTAL")
-	private String codigoPostal;
+	@Column(name="NUMERO_VIA")
+	private int numeroVia;
 	
-	@Column(name="TELEFONOCONTRATACION")
+	@Column(name="COD_POSTAL")
+	private int codPostal;
+	
+	@Column(name="TELEFONO_CONTRATACION")
 	private String telefonoContratacion;
 	
-	@Column(name="TELEFONOSINIESTROS")
+	@Column(name="TELEFONO_SINIESTROS")
 	private String telefonoSiniestros;
 	
 	@Column(name="NOTAS")
@@ -42,9 +45,9 @@ public class Compania implements Serializable{
 	
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinTable(
-            name = "COMPANIASSEGUROS",
-            joinColumns = {@JoinColumn(name = "NOMBRECOMPANIA")},
-            inverseJoinColumns = {@JoinColumn(name = "NUMEROPOLIZA")},
+            name = "COMPANIAS_SEGUROS",
+            joinColumns = {@JoinColumn(name = "NOMBRE_COMPANIA")},
+            inverseJoinColumns = {@JoinColumn(name = "NUMERO_POLIZA")},
             schema = "SEGUNI"
     )
 	private List<Seguro> seguros;
@@ -73,12 +76,24 @@ public class Compania implements Serializable{
 		this.numeroVia = numeroVia;
 	}
 
-	public String getCodigoPostal() {
-		return codigoPostal;
+	public String getNombreVia() {
+		return nombreVia;
 	}
 
-	public void setCodigoPostal(String codigoPostal) {
-		this.codigoPostal = codigoPostal;
+	public void setNombreVia(String nombreVia) {
+		this.nombreVia = nombreVia;
+	}
+
+	public int getCodPostal() {
+		return codPostal;
+	}
+
+	public void setCodPostal(int codPostal) {
+		this.codPostal = codPostal;
+	}
+
+	public void setNumeroVia(int numeroVia) {
+		this.numeroVia = numeroVia;
 	}
 
 	public String getTelefonoContratacion() {

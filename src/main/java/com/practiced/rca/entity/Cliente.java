@@ -14,32 +14,32 @@ public class Cliente implements Serializable{
 	private static final long serialVersionUID = -3630605027551015154L;
 
 	@Id
-	@Column(name="DPI")
-	private String dpi;
-
-	@Column(name="NOMBRE")
-	private String nombre;
+	@Column(name="DNI_CL")
+	private String dniCl;
 	
-	@Column(name="APELLIDOP")
-	private String apellidoP;
-
-	@Column(name="APELLIDOM")
-	private String apellidoM;
+	@Column(name="NOMBRE_CL")
+	private String nombreCl;
 	
-	@Column(name="CLASEVIA")
+	@Column(name="APELLIDO_1")
+	private String apellido1;
+	
+	@Column(name="APELLIDO_2")
+	private String apellido2;
+	
+	@Column(name="CLASE_VIA")
 	private String claseVia;
 	
-	@Column(name="NOMBREVIA")
+	@Column(name="NOMBRE_VIA")
 	private String nombreVia;
 	
-	@Column(name="NUMEROVIA")
+	@Column(name="NUMERO_VIA")
 	private Integer numeroVia;
+	
+	@Column(name="COD_POSTAL")
+	private Integer codPostal;
 	
 	@Column(name="CIUDAD")
 	private String ciudad;
-	
-	@Column(name="CODIGOPOSTAL")
-	private String codigoPostal;
 	
 	@Column(name="TELEFONO")
 	private String telefono;
@@ -47,36 +47,44 @@ public class Cliente implements Serializable{
 	@Column(name="OBSERVACIONES")
 	private String observaciones;
 
-	public String getDpi() {
-		return dpi;
+	public String getDniCl() {
+		return dniCl;
 	}
 
-	public void setDpi(String dpi) {
-		this.dpi = dpi;
+	public void setDniCl(String dniCl) {
+		this.dniCl = dniCl;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getNombreCl() {
+		return nombreCl;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNombreCl(String nombreCl) {
+		this.nombreCl = nombreCl;
 	}
 
-	public String getApellidoP() {
-		return apellidoP;
+	public String getApellido1() {
+		return apellido1;
 	}
 
-	public void setApellidoP(String apellidoP) {
-		this.apellidoP = apellidoP;
+	public void setApellido1(String apellido1) {
+		this.apellido1 = apellido1;
 	}
 
-	public String getApellidoM() {
-		return apellidoM;
+	public String getApellido2() {
+		return apellido2;
 	}
 
-	public void setApellidoM(String apellidoM) {
-		this.apellidoM = apellidoM;
+	public void setApellido2(String apellido2) {
+		this.apellido2 = apellido2;
+	}
+
+	public Integer getCodPostal() {
+		return codPostal;
+	}
+
+	public void setCodPostal(Integer codPostal) {
+		this.codPostal = codPostal;
 	}
 
 	public String getClaseVia() {
@@ -109,14 +117,6 @@ public class Cliente implements Serializable{
 
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
-	}
-
-	public String getCodigoPostal() {
-		return codigoPostal;
-	}
-
-	public void setCodigoPostal(String codigoPostal) {
-		this.codigoPostal = codigoPostal;
 	}
 
 	public String getTelefono() {

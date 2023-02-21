@@ -19,9 +19,7 @@ public class Usuario implements Serializable{
 	
 	@Column(name="PASSWORD")
 	private String password;
-	
-	@Column(name="DPI")
-	private String dpi;
+
 
 	public String getUsername() {
 		return username;
@@ -39,11 +37,4 @@ public class Usuario implements Serializable{
 		this.password = password;
 	}
 
-	public String getDpi() {
-		return dpi;
-	}
-
-	public void setDpi(String dpi) {
-		this.dpi = dpi;
-	}
 }

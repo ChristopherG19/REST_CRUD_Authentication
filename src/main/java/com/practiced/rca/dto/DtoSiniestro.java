@@ -8,8 +8,8 @@ public class DtoSiniestro {
 	private Integer idSiniestro;
 	private Date fechaSiniestro;
 	private String causas;
-	private String aceptado;
-	private Integer indemnizacion;
+	private char aceptado;
+	private double indemnizacion;
 	private Integer numeroPoliza;
 	private Perito perito;
 	
@@ -31,16 +31,16 @@ public class DtoSiniestro {
 	public void setCausas(String causas) {
 		this.causas = causas;
 	}
-	public String getAceptado() {
+	public char getAceptado() {
 		return aceptado;
 	}
-	public void setAceptado(String aceptado) {
+	public void setAceptado(char aceptado) {
 		this.aceptado = aceptado;
 	}
-	public Integer getIndemnizacion() {
+	public double getIndemnizacion() {
 		return indemnizacion;
 	}
-	public void setIndemnizacion(Integer indemnizacion) {
+	public void setIndemnizacion(double indemnizacion) {
 		this.indemnizacion = indemnizacion;
 	}
 	public Integer getNumeroPoliza() {

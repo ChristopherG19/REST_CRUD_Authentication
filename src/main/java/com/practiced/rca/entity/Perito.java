@@ -14,47 +14,40 @@ public class Perito implements Serializable{
 	private static final long serialVersionUID = -8911871826469653441L;
 
 	@Id
-	@Column(name="DPIPERITO")
-	private String dpiPerito;
+	@Column(name="DNI_PERITO")
+	private String dniPerito;
 	
-	@Column(name="NOMBREPERITO")
+	@Column(name="NOMBRE_PERITO")
 	private String nombrePerito;
 	
-	@Column(name="APELLIDOP")
-	private String apellidoP;
-
-	@Column(name="APELLIDOM")
-	private String apellidoM;
+	@Column(name="APELLIDO_PERITO1")
+	private String apellidoPerito1;
 	
-	@Column(name="TELEFONOCONTACTO")
+	@Column(name="APELLIDO_PERITO2")
+	private String apellidoPerito2;
+	
+	@Column(name="TELEFONO_CONTACTO")
 	private String telefonoContacto;
 	
-	@Column(name="TELEFONOOFICINA")
+	@Column(name="TELEFONO_OFICINA")
 	private String telefonoOficina;
 	
-	@Column(name="CLASEVIA")
+	@Column(name="CLASE_VIA")
 	private String claseVia;
 	
-	@Column(name="NOMBREVIA")
+	@Column(name="NOMBRE_VIA")
 	private String nombreVia;
 	
-	@Column(name="NUMEROVIA")
+	@Column(name="NUMERO_VIA")
 	private Integer numeroVia;
 	
-	@Column(name="CODIGOPOSTAL")
-	private String codigoPostal;
+	@Column(name="COD_POSTAL")
+	private Integer codPostal;
 	
 	@Column(name="CIUDAD")
 	private String ciudad;
 
-	public String getDpiPerito() {
-		return dpiPerito;
-	}
-
-	public void setDpiPerito(String dpiPerito) {
-		this.dpiPerito = dpiPerito;
-	}
-
+	
 	public String getNombrePerito() {
 		return nombrePerito;
 	}
@@ -63,20 +56,38 @@ public class Perito implements Serializable{
 		this.nombrePerito = nombrePerito;
 	}
 
-	public String getApellidoP() {
-		return apellidoP;
+
+
+	public String getDniPerito() {
+		return dniPerito;
 	}
 
-	public void setApellidoP(String apellidoP) {
-		this.apellidoP = apellidoP;
+	public void setDniPerito(String dniPerito) {
+		this.dniPerito = dniPerito;
 	}
 
-	public String getApellidoM() {
-		return apellidoM;
+	public String getApellidoPerito1() {
+		return apellidoPerito1;
 	}
 
-	public void setApellidoM(String apellidoM) {
-		this.apellidoM = apellidoM;
+	public void setApellidoPerito1(String apellidoPerito1) {
+		this.apellidoPerito1 = apellidoPerito1;
+	}
+
+	public String getApellidoPerito2() {
+		return apellidoPerito2;
+	}
+
+	public void setApellidoPerito2(String apellidoPerito2) {
+		this.apellidoPerito2 = apellidoPerito2;
+	}
+
+	public Integer getCodPostal() {
+		return codPostal;
+	}
+
+	public void setCodPostal(Integer codPostal) {
+		this.codPostal = codPostal;
 	}
 
 	public String getTelefonoContacto() {
@@ -119,13 +130,6 @@ public class Perito implements Serializable{
 		this.numeroVia = numeroVia;
 	}
 
-	public String getCodigoPostal() {
-		return codigoPostal;
-	}
-
-	public void setCodigoPostal(String codigoPostal) {
-		this.codigoPostal = codigoPostal;
-	}
 
 	public String getCiudad() {
 		return ciudad;

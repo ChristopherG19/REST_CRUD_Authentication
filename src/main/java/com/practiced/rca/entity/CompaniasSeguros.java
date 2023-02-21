@@ -11,7 +11,7 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="COMPANIASSEGUROS", schema = "SEGUNI")
+@Table(name="COMPANIAS_SEGUROS", schema = "SEGUNI")
 public class CompaniasSeguros implements Serializable{
 
 	private static final long serialVersionUID = -5812381992640470533L;
@@ -19,13 +19,13 @@ public class CompaniasSeguros implements Serializable{
 	@Id
 	@Column(name="ID")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="COMPANIA_IDS")
-	@SequenceGenerator(name = "COMPANIA_IDS", allocationSize = 1, schema = "SEGUNI")
+	@SequenceGenerator(name = "COMPANIA_IDS",sequenceName="sec_comseg", allocationSize = 1, schema = "SEGUNI")
 	private Integer id;
 
-	@Column(name="NUMEROPOLIZA")
+	@Column(name="NUMERO_POLIZA")
 	private Integer numeroPoliza;
 	
-	@Column(name="NOMBRECOMPANIA")
+	@Column(name="NOMBRE_COMPANIA")
 	private String nombreCompania;
 
 	public Integer getId() {

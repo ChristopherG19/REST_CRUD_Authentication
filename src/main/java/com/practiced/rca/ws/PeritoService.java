@@ -28,16 +28,16 @@ public class PeritoService implements PeritoServiceInt{
 	
 		return peritos.stream().map(perito -> {
 			DtoPerito dtoPerito = new DtoPerito();
-			dtoPerito.setDpiPerito(perito.getDpiPerito());
+			dtoPerito.setDpiPerito(perito.getDniPerito());
 			dtoPerito.setNombrePerito(perito.getNombrePerito());
-			dtoPerito.setApellidoP(perito.getApellidoP());
-			dtoPerito.setApellidoM(perito.getApellidoM());
+			dtoPerito.setApellidoP(perito.getApellidoPerito1());
+			dtoPerito.setApellidoM(perito.getApellidoPerito2());
 			dtoPerito.setTelefonoContacto(perito.getTelefonoContacto());
 			dtoPerito.setTelefonoOficina(perito.getTelefonoOficina());
 			dtoPerito.setClaseVia(perito.getClaseVia());
 			dtoPerito.setNombreVia(perito.getNombreVia());
 			dtoPerito.setNumeroVia(perito.getNumeroVia());
-			dtoPerito.setCodigoPostal(perito.getCodigoPostal());
+			dtoPerito.setCodigoPostal(perito.getCodPostal());
 			dtoPerito.setCiudad(perito.getCiudad());
 			return dtoPerito;
 		}).toList();
@@ -51,7 +51,7 @@ public class PeritoService implements PeritoServiceInt{
 	
 	@Override
 	public void deletePerito(String dpi) {
-		Perito perito = peritoRepository.findByDpiPeritoLike(dpi);
+		Perito perito = peritoRepository.findByDniPeritoLike(dpi);
 		if (perito != null) {
 			peritoRepository.delete(perito);
 		}
@@ -64,6 +64,6 @@ public class PeritoService implements PeritoServiceInt{
 	
 	@Override
 	public List<Perito> searchByApellidos(String apeP, String apeM) {
-		return peritoRepository.findByApellidoPAndApellidoM(apeP, apeM);
+		return peritoRepository.findByApellidoPerito1AndApellidoPerito2(apeP, apeM);
 	}
 }

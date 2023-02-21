@@ -15,5 +15,5 @@ public interface ClienteRepository extends JpaRepository<Cliente, Serializable>{
 	public Page<Cliente> findAll(Pageable pageable);
 	public List<Cliente> findByCiudadContaining(String city);
 	public List<Cliente> findByObservacionesNotLike(String word);
-	public List<Cliente> findByCodigoPostalStartingWith(String codPostal);
+	public List<Cliente> findByCodPostalStartingWith(String codPostal);
 }

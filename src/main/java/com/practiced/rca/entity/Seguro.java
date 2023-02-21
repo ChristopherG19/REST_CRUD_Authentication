@@ -22,31 +22,31 @@ public class Seguro implements Serializable{
 	private static final long serialVersionUID = 179616312973709072L;
 
 	@Id
-	@Column(name="NUMEROPOLIZA")
+	@Column(name="NUMERO_POLIZA")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEGUROS_IDS")
-	@SequenceGenerator(name = "SEGUROS_IDS", allocationSize = 1, schema = "SEGUNI")
+	@SequenceGenerator(name = "SEGUROS_IDS",sequenceName="sec_seguros", allocationSize = 1, schema = "SEGUNI")
 	private Integer numeroPoliza;
 	
 	@Column(name="RAMO")
 	private String ramo;
 	
-	@Column(name="FECHAINICIO")
+	@Column(name="FECHA_INICIO")
 	private Date fechaInicio;
 	
-	@Column(name="FECHAVENCIMIENTO")
+	@Column(name="FECHA_VENCIMIENTO")
 	private Date fechaVencimiento;
 	
-	@Column(name="CONDICIONESPARTICULARES")
+	@Column(name="CONDICIONES_PARTICULARES")
 	private String condicionesParticulares;
 	
 	@Column(name="OBSERVACIONES")
 	private String observaciones;
 	
-	@Column(name="DPI")
+	@Column(name="DNI_CL")
 	private String dpi;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "NUMEROPOLIZA")
+	@JoinColumn(name = "NUMERO_POLIZA")
 	private List<Siniestro> siniestros;
 	
 	public List<Siniestro> getSiniestros() {

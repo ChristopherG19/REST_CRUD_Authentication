@@ -13,7 +13,7 @@ import com.practiced.rca.entity.Perito;
 @Repository("peritoRepository")
 public interface PeritoRepository extends JpaRepository<Perito, Serializable>{
 	public Page<Perito> findAll(Pageable pageable);
-	public Perito findByDpiPeritoLike(String dpi);
+	public Perito findByDniPeritoLike(String dpi);
 	public List<Perito> findByNumeroViaGreaterThan(int numeroVia);
-	public List<Perito> findByApellidoPAndApellidoM(String apeP, String apeM);
+	public List<Perito> findByApellidoPerito1AndApellidoPerito2(String apeP, String apeM);
 }

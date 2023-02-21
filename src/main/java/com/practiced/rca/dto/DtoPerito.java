@@ -10,7 +10,7 @@ public class DtoPerito {
 	private String claseVia;
 	private String nombreVia;
 	private Integer numeroVia;
-	private String codigoPostal;
+	private Integer codigoPostal;
 	private String ciudad;
 	
 	public String getDpiPerito() {
@@ -67,10 +67,10 @@ public class DtoPerito {
 	public void setNumeroVia(Integer numeroVia) {
 		this.numeroVia = numeroVia;
 	}
-	public String getCodigoPostal() {
+	public Integer getCodigoPostal() {
 		return codigoPostal;
 	}
-	public void setCodigoPostal(String codigoPostal) {
+	public void setCodigoPostal(Integer codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
 	public String getCiudad() {

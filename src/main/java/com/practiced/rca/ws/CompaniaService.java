@@ -31,8 +31,9 @@ public class CompaniaService implements CompaniaServiceInt{
 			DtoCompania dtoCompania = new DtoCompania();
 			dtoCompania.setNombreCompania(compania.getNombreCompania());
 			dtoCompania.setClaseVia(compania.getClaseVia());
+			dtoCompania.setNombreVia(compania.getNombreVia());
 			dtoCompania.setNumeroVia(compania.getNumeroVia());
-			dtoCompania.setCodigoPostal(compania.getCodigoPostal());
+			dtoCompania.setCodigoPostal(compania.getCodPostal());
 			dtoCompania.setTelefonoContratacion(compania.getTelefonoContratacion());
 			dtoCompania.setTelefonoSiniestros(compania.getTelefonoSiniestros());
 			dtoCompania.setNotas(compania.getNotas());

@@ -65,15 +65,15 @@ public class AuthService implements AuthServiceInt{
 	
 		return clientes.stream().map(cliente -> {
 			DtoCliente dtoCliente = new DtoCliente();
-			dtoCliente.setDpi(cliente.getDpi());
-			dtoCliente.setNombre(cliente.getNombre());
-			dtoCliente.setApellidoP(cliente.getApellidoP());
-			dtoCliente.setApellidoM(cliente.getApellidoM());
+			dtoCliente.setDpi(cliente.getDniCl());
+			dtoCliente.setNombre(cliente.getNombreCl());
+			dtoCliente.setApellidoP(cliente.getApellido1());
+			dtoCliente.setApellidoM(cliente.getApellido2());
 			dtoCliente.setClaseVia(cliente.getClaseVia());
 			dtoCliente.setNombreVia(cliente.getNombreVia());
 			dtoCliente.setNumeroVia(cliente.getNumeroVia());
 			dtoCliente.setCiudad(cliente.getCiudad());
-			dtoCliente.setCodigoPostal(cliente.getCodigoPostal());
+			dtoCliente.setCodigoPostal(cliente.getCodPostal());
 			dtoCliente.setTelefono(cliente.getTelefono());
 			dtoCliente.setObservaciones(cliente.getObservaciones());
 			return dtoCliente;
@@ -106,7 +106,7 @@ public class AuthService implements AuthServiceInt{
 
 	@Override
 	public List<Cliente> searchByCodPostal(String codPostal) {
-		return clienteRepository.findByCodigoPostalStartingWith(codPostal);
+		return clienteRepository.findByCodPostalStartingWith(codPostal);
 	}
 	
 	
@@ -121,8 +121,9 @@ public class AuthService implements AuthServiceInt{
 			DtoCompania dtoCompania = new DtoCompania();
 			dtoCompania.setNombreCompania(compania.getNombreCompania());
 			dtoCompania.setClaseVia(compania.getClaseVia());
+			dtoCompania.setNombreVia(compania.getNombreVia());
 			dtoCompania.setNumeroVia(compania.getNumeroVia());
-			dtoCompania.setCodigoPostal(compania.getCodigoPostal());
+			dtoCompania.setCodigoPostal(compania.getCodPostal());
 			dtoCompania.setTelefonoContratacion(compania.getTelefonoContratacion());
 			dtoCompania.setTelefonoSiniestros(compania.getTelefonoSiniestros());
 			dtoCompania.setNotas(compania.getNotas());
@@ -194,16 +195,16 @@ public class AuthService implements AuthServiceInt{
 	
 		return peritos.stream().map(perito -> {
 			DtoPerito dtoPerito = new DtoPerito();
-			dtoPerito.setDpiPerito(perito.getDpiPerito());
+			dtoPerito.setDpiPerito(perito.getDniPerito());
 			dtoPerito.setNombrePerito(perito.getNombrePerito());
-			dtoPerito.setApellidoP(perito.getApellidoP());
-			dtoPerito.setApellidoM(perito.getApellidoM());
+			dtoPerito.setApellidoP(perito.getApellidoPerito1());
+			dtoPerito.setApellidoM(perito.getApellidoPerito2());
 			dtoPerito.setTelefonoContacto(perito.getTelefonoContacto());
 			dtoPerito.setTelefonoOficina(perito.getTelefonoOficina());
 			dtoPerito.setClaseVia(perito.getClaseVia());
 			dtoPerito.setNombreVia(perito.getNombreVia());
 			dtoPerito.setNumeroVia(perito.getNumeroVia());
-			dtoPerito.setCodigoPostal(perito.getCodigoPostal());
+			dtoPerito.setCodigoPostal(perito.getCodPostal());
 			dtoPerito.setCiudad(perito.getCiudad());
 			return dtoPerito;
 		}).toList();
@@ -217,7 +218,7 @@ public class AuthService implements AuthServiceInt{
 	
 	@Override
 	public void deletePerito(String dpi) {
-		Perito perito = peritoRepository.findByDpiPeritoLike(dpi);
+		Perito perito = peritoRepository.findByDniPeritoLike(dpi);
 		if (perito != null) {
 			peritoRepository.delete(perito);
 		}
@@ -230,7 +231,7 @@ public class AuthService implements AuthServiceInt{
 	
 	@Override
 	public List<Perito> searchByApellidos(String apeP, String apeM) {
-		return peritoRepository.findByApellidoPAndApellidoM(apeP, apeM);
+		return peritoRepository.findByApellidoPerito1AndApellidoPerito2(apeP, apeM);
 	}
 	
 	
@@ -289,7 +290,7 @@ public class AuthService implements AuthServiceInt{
 	
 	@Override
 	public Siniestro guardar(DtoSiniestro siniestro) {
-		Perito perito = peritoRepository.findByDpiPeritoLike(siniestro.getPerito().getDpiPerito());
+		Perito perito = peritoRepository.findByDniPeritoLike(siniestro.getPerito().getDniPerito());
 		Siniestro nuevoSiniestro = modelMapper.map(siniestro, Siniestro.class);
 		nuevoSiniestro.setPerito(perito);
 		return siniestroRepository.save(nuevoSiniestro);

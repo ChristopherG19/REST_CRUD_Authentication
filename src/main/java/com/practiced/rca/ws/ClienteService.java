@@ -32,15 +32,15 @@ public class ClienteService implements ClienteServiceInt{
 	
 		return clientes.stream().map(cliente -> {
 			DtoCliente dtoCliente = new DtoCliente();
-			dtoCliente.setDpi(cliente.getDpi());
-			dtoCliente.setNombre(cliente.getNombre());
-			dtoCliente.setApellidoP(cliente.getApellidoP());
-			dtoCliente.setApellidoM(cliente.getApellidoM());
+			dtoCliente.setDpi(cliente.getDniCl());
+			dtoCliente.setNombre(cliente.getNombreCl());
+			dtoCliente.setApellidoP(cliente.getApellido1());
+			dtoCliente.setApellidoM(cliente.getApellido2());
 			dtoCliente.setClaseVia(cliente.getClaseVia());
 			dtoCliente.setNombreVia(cliente.getNombreVia());
 			dtoCliente.setNumeroVia(cliente.getNumeroVia());
 			dtoCliente.setCiudad(cliente.getCiudad());
-			dtoCliente.setCodigoPostal(cliente.getCodigoPostal());
+			dtoCliente.setCodigoPostal(cliente.getCodPostal());
 			dtoCliente.setTelefono(cliente.getTelefono());
 			dtoCliente.setObservaciones(cliente.getObservaciones());
 			return dtoCliente;
@@ -73,7 +73,7 @@ public class ClienteService implements ClienteServiceInt{
 
 	@Override
 	public List<Cliente> searchByCodPostal(String codPostal) {
-		return clienteRepository.findByCodigoPostalStartingWith(codPostal);
+		return clienteRepository.findByCodPostalStartingWith(codPostal);
 	}
 	
 	

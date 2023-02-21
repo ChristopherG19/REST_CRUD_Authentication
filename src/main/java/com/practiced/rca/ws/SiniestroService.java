@@ -50,7 +50,7 @@ public class SiniestroService implements SiniestroServiceInt{
 	
 	@Override
 	public Siniestro guardar(DtoSiniestro siniestro) {
-		Perito perito = peritoRepository.findByDpiPeritoLike(siniestro.getPerito().getDpiPerito());
+		Perito perito = peritoRepository.findByDniPeritoLike(siniestro.getPerito().getDniPerito());
 		Siniestro nuevoSiniestro = modelMapper.map(siniestro, Siniestro.class);
 		nuevoSiniestro.setPerito(perito);
 		return siniestroRepository.save(nuevoSiniestro);
