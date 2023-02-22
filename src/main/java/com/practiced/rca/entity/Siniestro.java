@@ -42,7 +42,7 @@ public class Siniestro implements Serializable{
 	private Integer numeroPoliza;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinColumn(name="DPIPERITO")
+	@JoinColumn(name="DNI_PERITO")
 	private Perito perito;
 
 	public Integer getIdSiniestro() {

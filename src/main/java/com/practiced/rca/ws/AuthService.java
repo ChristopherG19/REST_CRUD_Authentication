@@ -249,7 +249,7 @@ public class AuthService implements AuthServiceInt{
 			dtoSeguro.setFechaVencimiento(seguro.getFechaVencimiento());
 			dtoSeguro.setCondicionesParticulares(seguro.getCondicionesParticulares());
 			dtoSeguro.setObservaciones(seguro.getObservaciones());
-			dtoSeguro.setDpi(seguro.getDpi());
+			dtoSeguro.setDpi(seguro.getDniCl());
 			return dtoSeguro;
 		}).toList();
 	}

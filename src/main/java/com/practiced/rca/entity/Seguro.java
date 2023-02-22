@@ -43,7 +43,7 @@ public class Seguro implements Serializable{
 	private String observaciones;
 	
 	@Column(name="DNI_CL")
-	private String dpi;
+	private String dniCl;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "NUMERO_POLIZA")
@@ -105,11 +105,13 @@ public class Seguro implements Serializable{
 		this.observaciones = observaciones;
 	}
 
-	public String getDpi() {
-		return dpi;
+	public String getDniCl() {
+		return dniCl;
 	}
 
-	public void setDpi(String dpi) {
-		this.dpi = dpi;
+	public void setDniCl(String dniCl) {
+		this.dniCl = dniCl;
 	}
+
+
 }
