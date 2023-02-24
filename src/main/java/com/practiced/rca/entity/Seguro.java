@@ -14,9 +14,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
 @Table(name="SEGUROS", schema = "SEGUNI")
+@Data
 public class Seguro implements Serializable{
 
 	private static final long serialVersionUID = 179616312973709072L;
@@ -49,67 +51,4 @@ public class Seguro implements Serializable{
 	@JoinColumn(name = "NUMEROPOLIZA")
 	private List<Siniestro> siniestros;
 	
-	public List<Siniestro> getSiniestros() {
-		return siniestros;
-	}
-
-	public void setSiniestros(List<Siniestro> siniestros) {
-		this.siniestros = siniestros;
-	}
-
-	public Integer getNumeroPoliza() {
-		return numeroPoliza;
-	}
-
-	public void setNumeroPoliza(Integer numeroPoliza) {
-		this.numeroPoliza = numeroPoliza;
-	}
-
-	public String getRamo() {
-		return ramo;
-	}
-
-	public void setRamo(String ramo) {
-		this.ramo = ramo;
-	}
-
-	public Date getFechaInicio() {
-		return fechaInicio;
-	}
-
-	public void setFechaInicio(Date fechaInicio) {
-		this.fechaInicio = fechaInicio;
-	}
-
-	public Date getFechaVencimiento() {
-		return fechaVencimiento;
-	}
-
-	public void setFechaVencimiento(Date fechaVencimiento) {
-		this.fechaVencimiento = fechaVencimiento;
-	}
-
-	public String getCondicionesParticulares() {
-		return condicionesParticulares;
-	}
-
-	public void setCondicionesParticulares(String condicionesParticulares) {
-		this.condicionesParticulares = condicionesParticulares;
-	}
-
-	public String getObservaciones() {
-		return observaciones;
-	}
-
-	public void setObservaciones(String observaciones) {
-		this.observaciones = observaciones;
-	}
-
-	public String getDpi() {
-		return dpi;
-	}
-
-	public void setDpi(String dpi) {
-		this.dpi = dpi;
-	}
 }
