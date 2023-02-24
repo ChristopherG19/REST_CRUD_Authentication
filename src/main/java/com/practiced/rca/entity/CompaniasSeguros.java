@@ -9,9 +9,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
 @Table(name="COMPANIASSEGUROS", schema = "SEGUNI2")
+@Data
 public class CompaniasSeguros implements Serializable{
 
 	private static final long serialVersionUID = -5812381992640470533L;
@@ -28,27 +30,5 @@ public class CompaniasSeguros implements Serializable{
 	@Column(name="NOMBRECOMPANIA")
 	private String nombreCompania;
 
-	public Integer getId() {
-		return id;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Integer getNumeroPoliza() {
-		return numeroPoliza;
-	}
-
-	public void setNumeroPoliza(Integer numeroPoliza) {
-		this.numeroPoliza = numeroPoliza;
-	}
-
-	public String getNombreCompania() {
-		return nombreCompania;
-	}
-
-	public void setNombreCompania(String nombreCompania) {
-		this.nombreCompania = nombreCompania;
-	}
 }
