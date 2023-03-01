@@ -267,7 +267,6 @@ public class AuthService implements AuthServiceInt{
 		}
 	}
 	
-	
 	@Override
 	public List<DtoSiniestro> findAllSiniestros(int page, int offset) {
 		Pageable paging = PageRequest.of(page, offset);
